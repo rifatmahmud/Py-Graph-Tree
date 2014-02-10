@@ -73,7 +73,7 @@ def create_subtree(root_pt, pt_set, current_dim):
 	
 
 
-def construct_kdtree(dimensions, pt_set, root_pos, current_dimension, current_level, current_pos, num_of_level):
+def construct_kdtree(dimensions, pt_set, root_pos, current_dimension, current_level, current_pos, num_of_level, kdtree):
 	
 	if root_pos==0:
 		num_of_level=determine_level(len(pt_set))
@@ -93,8 +93,8 @@ def construct_kdtree(dimensions, pt_set, root_pos, current_dimension, current_le
 	if current_level==number_of_level
 		return
 	[pt_set_left, pt_set_right]=create_subtree(median, pt_set, current_dimension)
-	construct_kdtree(dimensions, pt_set_left, 2*root_pos+1, current_dimension+1, current_level+1, num_of_level)
-	construct_kdtree(dimensions, pt_set_right, 2*root_pos+2, current_dimension+1, current_level+1, num_of_level)
+	construct_kdtree(dimensions, pt_set_left, 2*root_pos+1, current_dimension+1, current_level+1, num_of_level, kdtree)
+	construct_kdtree(dimensions, pt_set_right, 2*root_pos+2, current_dimension+1, current_level+1, num_of_level, kdtree)
 	
 	
 		
